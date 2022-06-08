@@ -166,7 +166,7 @@ class _BeliinPageState extends State<BeliinPage>
                 children: [
                   Container(
                     child: ListView(
-                      padding: EdgeInsets.fromLTRB(18, 10, 18, 70),
+                      padding: EdgeInsets.fromLTRB(18, 10, 18, 80),
                       children: [
                         Container(
                           child: GridView.count(

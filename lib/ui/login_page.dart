@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_bangkit_capstone/ui/beranda/beranda_page.dart';
+import 'package:flutter_application_bangkit_capstone/ui/main_page.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -148,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      Get.to(const BerandaPage());
+                      Get.to(const MainPage());
                     },
                     child: Text(
                       'MASUK',
