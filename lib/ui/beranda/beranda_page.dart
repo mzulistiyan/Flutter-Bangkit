@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_bangkit_capstone/ui/beranda/karir/persiapan_karir_page.dart';
 import 'package:get/route_manager.dart';
@@ -11,8 +12,27 @@ class BerandaPage extends StatefulWidget {
 }
 
 class _BerandaPageState extends State<BerandaPage> {
+  int currentIndex = 0;
+  List imgList = [
+    'assets/banner_1.png',
+    'assets/banner_1.png',
+    'assets/banner_1.png',
+  ];
   @override
   Widget build(BuildContext context) {
+    int index = -1;
+    Widget indicator(int index) {
+      return Container(
+        width: currentIndex == index ? 24 : 10,
+        height: currentIndex == index ? 10 : 10,
+        margin: EdgeInsets.symmetric(horizontal: 2),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color:
+                currentIndex == index ? Color(0xffAA3D43) : Color(0xffEEC2C5)),
+      );
+    }
+
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -48,44 +68,40 @@ class _BerandaPageState extends State<BerandaPage> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Container(
-                    child: Image.asset(
-                      'assets/banner_1.png',
-                      width: 300,
-                      height: 90,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    child: Image.asset(
-                      'assets/banner_2.png',
-                      width: 300,
-                      height: 90,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    child: Image.asset(
-                      'assets/banner_3.png',
-                      width: 300,
-                      height: 90,
-                    ),
-                  )
-                ],
-              ),
+            Container(
+              height: 120,
+              child: CarouselSlider(
+                  items: imgList
+                      .map(
+                        (image) => Image.asset(
+                          image,
+                          width: 340,
+                        ),
+                      )
+                      .toList(),
+                  options: CarouselOptions(
+                      viewportFraction: 1,
+                      initialPage: 0,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          currentIndex = index;
+                        });
+                      })),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: imgList.map((e) {
+                index++;
+                return indicator(index);
+              }).toList(),
+            ),
+            const SizedBox(
+              height: 36,
             ),
             Text(
               'Pilih Konsultasi mu',
@@ -106,20 +122,20 @@ class _BerandaPageState extends State<BerandaPage> {
                     Get.to(const PersiapanKarirPage());
                   },
                   child: konsultasi(
-                    'assets/icons/icon_karir.png',
+                    'assets/icons/icon_briefcase.png',
                     'Persiapan\nKarir',
                   ),
                 ),
                 konsultasi(
-                  'assets/icons/icon_keuangan.png',
+                  'assets/icons/icon_dolar.png',
                   'Keuangan',
                 ),
                 konsultasi(
-                  'assets/icons/icon_kesehatan.png',
+                  'assets/icons/icon_briefcase.png',
                   'Kesehatan',
                 ),
                 konsultasi(
-                  'assets/icons/icon_hukum.png',
+                  'assets/icons/icon_dolar.png',
                   'Hukum',
                 ),
               ],
@@ -131,19 +147,19 @@ class _BerandaPageState extends State<BerandaPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 konsultasi(
-                  'assets/icons/icon_teknologi.png',
+                  'assets/icons/icon_dolar.png',
                   'Teknologi',
                 ),
                 konsultasi(
-                  'assets/icons/icon_bangunan.png',
+                  'assets/icons/icon_briefcase.png',
                   'Arsitektur &\nBangunan',
                 ),
                 konsultasi(
-                  'assets/icons/icon_hewan.png',
+                  'assets/icons/icon_dolar.png',
                   'Hewan',
                 ),
                 konsultasi(
-                  'assets/icons/icon_lainnya.png',
+                  'assets/icons/icon_briefcase.png',
                   'Lainnya',
                 ),
               ],
@@ -164,150 +180,82 @@ class _BerandaPageState extends State<BerandaPage> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 160,
-                  height: 243,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.6),
-                        spreadRadius: 1,
-                        blurRadius: 6,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          'assets/buku.png',
-                          width: 200,
-                        ),
-                        Text(
-                          'Buku Mind Platter Bejana Pikiran oleh ...',
-                          style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 6,
-                        ),
-                        Text(
-                          'Rp100.100',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                            color: const Color(0xff85BDBF),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 6,
-                        ),
-                        Container(
-                          width: 144,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border:
-                                Border.all(color: Color(0xffC2FCF7), width: 3),
-                          ),
-                          child: Container(
-                            child: Center(
-                              child: Text(
-                                '+ Tambah',
-                                style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 160,
-                  height: 243,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.6),
-                        spreadRadius: 1,
-                        blurRadius: 6,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          'assets/buku.png',
-                          width: 200,
-                        ),
-                        Text(
-                          'Buku Mind Platter Bejana Pikiran oleh ...',
-                          style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 6,
-                        ),
-                        Text(
-                          'Rp100.100',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                            color: const Color(0xff85BDBF),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 6,
-                        ),
-                        Container(
-                          width: 144,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border:
-                                Border.all(color: Color(0xffC2FCF7), width: 3),
-                          ),
-                          child: Container(
-                            child: Center(
-                              child: Text(
-                                '+ Tambah',
-                                style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+              children: [cardBuku(), cardBuku()],
             ),
             const SizedBox(
               height: 50,
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget cardBuku() {
+    return Container(
+      width: 160,
+      height: 243,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.6),
+            spreadRadius: 1,
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Container(
+        padding: EdgeInsets.all(8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              'assets/buku.png',
+              width: 200,
+            ),
+            Text(
+              'Buku Mind Platter Bejana Pikiran oleh ...',
+              style: GoogleFonts.poppins(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(
+              height: 6,
+            ),
+            Text(
+              'Rp100.100',
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
+            ),
+            const SizedBox(
+              height: 6,
+            ),
+            Container(
+              width: 144,
+              height: 30,
+              decoration: BoxDecoration(
+                color: Color(0xffCC4950),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Container(
+                child: Center(
+                  child: Text(
+                    '+ Tambah ke Keranjang',
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 10,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
@@ -324,7 +272,7 @@ class _BerandaPageState extends State<BerandaPage> {
             height: 50,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: const Color(0xffC2FCF7),
+              color: const Color(0xffFDF7F7),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.6),

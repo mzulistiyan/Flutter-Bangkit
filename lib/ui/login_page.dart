@@ -18,229 +18,252 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: Center(
-          child: Container(
-            padding: EdgeInsets.all(24),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/logo.png',
-                  width: 80,
-                  height: 80,
+        child: Container(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                'Masuk',
+                style: GoogleFonts.roboto(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 28,
                 ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 50,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(24)),
-                  child: Center(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.person,
-                          color: Colors.black,
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Text(
+                'Satu langkah lagi untuk dapat menikmati layanan Konsult-In',
+                style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                    color: const Color(0xff757575)),
+              ),
+              const SizedBox(
+                height: 130,
+              ),
+              Container(
+                width: double.infinity,
+                height: 50,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(24)),
+                child: Center(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintStyle: GoogleFonts.roboto(
+                        color: Color(0xff757575),
+                        fontSize: 14,
+                      ),
+                      hintText: 'Email',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xffC4C4C4),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Color(0xffC4C4C4), width: 2),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                      ),
+                      fillColor: Color(0xffEEEEEE),
+                      filled: true,
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Color(0xffBDBDBD),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 50,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(24)),
-                  child: Center(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: const Icon(
-                          Icons.lock,
-                          color: Colors.black,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: double.infinity,
+                height: 50,
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(24)),
+                child: Center(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintStyle: GoogleFonts.roboto(
+                        color: Color(0xff757575),
+                        fontSize: 14,
+                      ),
+                      hintText: 'Kata Sandi',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
                         ),
-                        suffixIcon: const Icon(
-                          Icons.visibility_off,
-                          color: Colors.black,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0xffC4C4C4),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Color(0xffC4C4C4), width: 2),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                      ),
+                      fillColor: Color(0xffEEEEEE),
+                      filled: true,
+                      prefixIcon: const Icon(
+                        Icons.lock,
+                        color: Color(0xffBDBDBD),
+                      ),
+                      suffixIcon: const Icon(
+                        Icons.visibility_off,
+                        color: Color(0xffBDBDBD),
                       ),
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Checkbox(
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5.0))),
+                            value: checkedValue,
+                            onChanged: (newValue) {
+                              setState(() {
+                                checkedValue = newValue;
+                              });
+                            },
+                          ),
+                        ),
+                        Text(
+                          'Ingat saya',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Text(
+                    'Lupa Kata Sandi ?',
+                    style: GoogleFonts.poppins(
+                      color: const Color(0xffCC4950),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 45,
+              ),
+              Container(
+                width: double.infinity,
+                height: 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(17),
+                  color: checkedValue == false
+                      ? Color(0xffF5DBDC)
+                      : Color(0xffCC4950),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.6),
+                      spreadRadius: 1,
+                      blurRadius: 6,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    Get.to(const MainPage());
+                  },
+                  child: Text(
+                    'MASUK',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              const SizedBox(
+                height: 28,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: 140,
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  Text(
+                    'atau',
+                    style: GoogleFonts.poppins(
+                      color: Colors.black,
+                    ),
+                  ),
+                  Container(
+                    width: 140,
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 28,
+              ),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
+                      width: 150,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            child: Checkbox(
-                              value: checkedValue,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  checkedValue = newValue;
-                                });
-                              },
-                            ),
+                          Image.asset(
+                            'assets/icon_google.png',
+                            width: 40,
                           ),
-                          Text(
-                            'Ingat saya',
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                            ),
-                          )
+                          Image.asset(
+                            'assets/icon_facebook.png',
+                            width: 40,
+                          ),
+                          Image.asset(
+                            'assets/icon_linkdin.png',
+                            width: 40,
+                          ),
                         ],
                       ),
                     ),
-                    Text(
-                      'Lupa Kata Sandi ?',
-                      style: GoogleFonts.poppins(
-                        color: const Color(0xff85BDBF),
-                        fontWeight: FontWeight.w700,
-                      ),
-                    )
                   ],
                 ),
-                const SizedBox(
-                  height: 45,
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(17),
-                    color: const Color(0xffC2FCF7),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.6),
-                        spreadRadius: 1,
-                        blurRadius: 6,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: TextButton(
-                    onPressed: () {
-                      Get.to(const MainPage());
-                    },
-                    child: Text(
-                      'MASUK',
-                      style: GoogleFonts.poppins(
-                        color: const Color(0xff57737A),
-                        fontWeight: FontWeight.bold,
-                      ),
+              ),
+              Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Belum punya akun?',
+                    style: GoogleFonts.roboto(
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Belum punya akun?',
-                      style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'Daftar disini',
-                      style: GoogleFonts.roboto(
-                        color: const Color(0xff85BDBF),
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 28,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 140,
-                      height: 2,
-                      color: Colors.black,
-                    ),
-                    Text(
-                      'atau',
-                      style:
-                          GoogleFonts.poppins(color: const Color(0xff57737A)),
-                    ),
-                    Container(
-                      width: 140,
-                      height: 2,
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 28,
-                ),
-                Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 150,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image.asset(
-                              'assets/icon_google.png',
-                              width: 40,
-                            ),
-                            Image.asset(
-                              'assets/icon_facebook.png',
-                              width: 40,
-                            ),
-                            Image.asset(
-                              'assets/icon_linkdin.png',
-                              width: 40,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 10,
                   ),
-                ),
-                Spacer(),
-                Text('v 1.0.0')
-              ],
-            ),
+                  Text(
+                    'Daftar disini',
+                    style: GoogleFonts.roboto(
+                      color: const Color(0xff85BDBF),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )
+                ],
+              ),
+            ],
           ),
         ),
       ),

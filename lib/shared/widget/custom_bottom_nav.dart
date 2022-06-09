@@ -31,8 +31,8 @@ class CustomBottomNav extends StatelessWidget {
             width: 30,
             height: 30,
             color: context.read<PageCubit>().state == index
-                ? Color(0xff90F7FF)
-                : Color(0xff85BDBF),
+                ? Color(0xffCC4950)
+                : Color(0xffBDBDBD),
           ),
           Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
@@ -42,8 +42,8 @@ class CustomBottomNav extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 fontSize: 11,
                 color: context.read<PageCubit>().state == index
-                    ? Color(0xff90F7FF)
-                    : Color(0xff85BDBF),
+                    ? Color(0xffCC4950)
+                    : Color(0xffBDBDBD),
               ),
             ),
           )

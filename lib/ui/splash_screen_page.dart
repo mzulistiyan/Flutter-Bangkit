@@ -42,8 +42,11 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
               height: 10,
             ),
             Text(
-              'Konsultasi Dalam Satu Aplikasi',
-              style: GoogleFonts.poppins(fontSize: 15),
+              'Konsult-In',
+              style: GoogleFonts.roboto(
+                fontSize: 32,
+                fontWeight: FontWeight.w600,
+              ),
             )
           ],
         ),

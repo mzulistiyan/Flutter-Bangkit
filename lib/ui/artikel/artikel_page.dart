@@ -15,7 +15,12 @@ class _ArtikelPageState extends State<ArtikelPage>
   @override
   void initState() {
     _tabController = new TabController(length: 4, vsync: this);
+    _tabController!.addListener(_handleTabSelection);
     super.initState();
+  }
+
+  void _handleTabSelection() {
+    setState(() {});
   }
 
   @override
@@ -70,11 +75,11 @@ class _ArtikelPageState extends State<ArtikelPage>
                     height: 30,
                     child: TabBar(
                       indicatorSize: TabBarIndicatorSize.label,
-                      labelStyle: GoogleFonts.poppins(color: Color(0xff85BDBF)),
-                      unselectedLabelColor: Colors.blue,
+                      labelStyle: GoogleFonts.poppins(color: Colors.black),
+                      unselectedLabelColor: Color(0xff757575),
                       indicator: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xffC2FCF7),
+                        color: Color(0xffCC4950),
                       ),
                       padding: EdgeInsets.zero,
                       indicatorPadding: EdgeInsets.zero,
@@ -85,64 +90,76 @@ class _ArtikelPageState extends State<ArtikelPage>
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 0
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Semua',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 1
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Karir',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 2
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Keuangan',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 3
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
-                              'Kesehatan',
+                              'kesehatan',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),

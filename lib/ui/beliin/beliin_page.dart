@@ -15,7 +15,12 @@ class _BeliinPageState extends State<BeliinPage>
   @override
   void initState() {
     _tabController = TabController(length: 4, vsync: this);
+    _tabController!.addListener(_handleTabSelection);
     super.initState();
+  }
+
+  void _handleTabSelection() {
+    setState(() {});
   }
 
   @override
@@ -55,7 +60,7 @@ class _BeliinPageState extends State<BeliinPage>
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide.none),
-                    hintText: 'Cari Transaksi',
+                    hintText: 'Cari barang',
                   ),
                 ),
               ),
@@ -63,7 +68,6 @@ class _BeliinPageState extends State<BeliinPage>
                 height: 15,
               ),
               Align(
-                alignment: Alignment.center,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Container(
@@ -71,11 +75,11 @@ class _BeliinPageState extends State<BeliinPage>
                     height: 30,
                     child: TabBar(
                       indicatorSize: TabBarIndicatorSize.label,
-                      labelStyle: GoogleFonts.poppins(color: Color(0xff85BDBF)),
-                      unselectedLabelColor: Colors.blue,
+                      labelStyle: GoogleFonts.poppins(color: Colors.black),
+                      unselectedLabelColor: Color(0xff757575),
                       indicator: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xffC2FCF7),
+                        color: Color(0xffCC4950),
                       ),
                       padding: EdgeInsets.zero,
                       indicatorPadding: EdgeInsets.zero,
@@ -86,64 +90,76 @@ class _BeliinPageState extends State<BeliinPage>
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 0
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Semua',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 1
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Karir',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 2
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Keuangan',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 3
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
-                              'Kesehatan',
+                              'kesehatan',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
@@ -307,26 +323,26 @@ class _BeliinPageState extends State<BeliinPage>
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
-                color: const Color(0xff85BDBF),
               ),
             ),
             const SizedBox(
-              height: 6,
+              height: 10,
             ),
             Container(
               width: 144,
               height: 30,
               decoration: BoxDecoration(
+                color: Color(0xffCC4950),
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Color(0xffC2FCF7), width: 3),
               ),
               child: Container(
                 child: Center(
                   child: Text(
-                    '+ Tambah',
+                    '+ Tambah ke Keranjang',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w500,
-                      fontSize: 12,
+                      fontSize: 10,
+                      color: Colors.white,
                     ),
                   ),
                 ),

@@ -19,6 +19,8 @@ class _ChatKonsultasiPageState extends State<ChatKonsultasiPage> {
           color: Colors.black, //change your color here
         ),
         backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
         title: Text(
           'Persiapan Karir',
           style: GoogleFonts.poppins(
@@ -31,36 +33,15 @@ class _ChatKonsultasiPageState extends State<ChatKonsultasiPage> {
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
-          TextFormField(
-            decoration: InputDecoration(
-              prefixIcon: const Icon(
-                Icons.search,
-                color: Color(0xffB4B4BC),
-                size: 22,
-              ),
-              fillColor: Color(0xffF5F6F7),
-              contentPadding:
-                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-              filled: true,
-              focusColor: Colors.blue,
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none),
-              hintText: 'Cari Transaksi',
-            ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
           Container(
             width: double.infinity,
-            height: 160,
+            height: 170,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withOpacity(0.2),
                   spreadRadius: 1,
                   blurRadius: 3,
                   offset: Offset(0, 3), // changes position of shadow
@@ -152,21 +133,30 @@ class _ChatKonsultasiPageState extends State<ChatKonsultasiPage> {
                             style: GoogleFonts.poppins(
                                 fontSize: 11, color: Color(0xff909193)),
                           ),
-                          Text(
-                            'Rp. 50.000 / 60 Menit',
-                            style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                                color: const Color(0xff85BDBF)),
+                          Row(
+                            children: [
+                              Text(
+                                'Rp. 50.000 ',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black),
+                              ),
+                              Text(
+                                '/ 60 Menit',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 12, color: Colors.black),
+                              ),
+                            ],
                           )
                         ],
                       ),
                       Container(
                         width: 120,
-                        height: 34,
+                        height: 43,
                         decoration: BoxDecoration(
-                          color: Color(0xffC2FCF7),
-                          borderRadius: BorderRadius.circular(8),
+                          color: Color(0xffCC4950),
+                          borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.5),
@@ -182,7 +172,7 @@ class _ChatKonsultasiPageState extends State<ChatKonsultasiPage> {
                           child: Text(
                             'Chat Sekarang',
                             style: GoogleFonts.poppins(
-                              color: Color(0xff57737A),
+                              color: Colors.white,
                               fontWeight: FontWeight.w600,
                               fontSize: 11,
                             ),
@@ -200,13 +190,13 @@ class _ChatKonsultasiPageState extends State<ChatKonsultasiPage> {
           ),
           Container(
             width: double.infinity,
-            height: 160,
+            height: 170,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withOpacity(0.2),
                   spreadRadius: 1,
                   blurRadius: 3,
                   offset: Offset(0, 3), // changes position of shadow
@@ -298,31 +288,32 @@ class _ChatKonsultasiPageState extends State<ChatKonsultasiPage> {
                             style: GoogleFonts.poppins(
                                 fontSize: 11, color: Color(0xff909193)),
                           ),
-                          Text(
-                            'Rp. 50.000 / 60 Menit',
-                            style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                                color: const Color(0xff85BDBF)),
+                          Row(
+                            children: [
+                              Text(
+                                'Rp. 50.000 ',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black),
+                              ),
+                              Text(
+                                '/ 60 Menit',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 12, color: Colors.black),
+                              ),
+                            ],
                           )
                         ],
                       ),
                       Container(
                         width: 120,
-                        height: 34,
+                        height: 43,
                         decoration: BoxDecoration(
-                          color: Color(0xffC2FCF7),
-                          borderRadius: BorderRadius.circular(8),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 1,
-                              blurRadius: 4,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            border:
+                                Border.all(width: 2, color: Color(0xffCC4950))),
                         child: TextButton(
                           onPressed: () {
                             Get.to(const PembayaranPage());
@@ -330,7 +321,7 @@ class _ChatKonsultasiPageState extends State<ChatKonsultasiPage> {
                           child: Text(
                             'Atur Jadwal',
                             style: GoogleFonts.poppins(
-                              color: Color(0xff57737A),
+                              color: Color(0xffCC4950),
                               fontWeight: FontWeight.w600,
                               fontSize: 11,
                             ),

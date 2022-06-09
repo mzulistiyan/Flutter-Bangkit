@@ -22,10 +22,10 @@ class MainPage extends StatelessWidget {
           return RiwayatPage();
           break;
         case 2:
-          return ArtikelPage();
+          return BeliinPage();
           break;
         case 3:
-          return BeliinPage();
+          return ArtikelPage();
           break;
         case 4:
           return ProfilePage();
@@ -61,13 +61,13 @@ class MainPage extends StatelessWidget {
               ),
               CustomBottomNav(
                 index: 2,
-                imageUrl: 'assets/icons/icon_artikel.png',
-                desc: 'Artikel',
+                imageUrl: 'assets/icons/icon_shopping.png',
+                desc: 'Beli-in',
               ),
               CustomBottomNav(
                 index: 3,
-                imageUrl: 'assets/icons/icon_keranjang.png',
-                desc: 'Beli-in',
+                imageUrl: 'assets/icons/icon_book-open.png',
+                desc: 'Artikel',
               ),
               CustomBottomNav(
                 index: 4,

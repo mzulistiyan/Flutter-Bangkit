@@ -18,7 +18,7 @@ class MenungguPembayaran extends StatelessWidget {
               width: double.infinity,
               height: 240,
               decoration: BoxDecoration(
-                color: Color(0xff5E7F85),
+                color: Color(0xffAA3D43),
               ),
               child: Container(
                 child: Center(
@@ -30,13 +30,14 @@ class MenungguPembayaran extends StatelessWidget {
                         height: 88,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color(0xff57737A),
+                          color: Color(0xffCC4950),
                         ),
                         child: Center(
                           child: Image.asset(
                             'assets/icons/icon_process.png',
                             width: 40,
                             height: 40,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -115,12 +116,12 @@ class MenungguPembayaran extends StatelessWidget {
                             style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 13,
-                                color: const Color(0xff5E7F85)),
+                                color: const Color(0xffCC4950)),
                           ),
                           Icon(
                             Icons.copy,
                             size: 12,
-                            color: Color(0xff5E7F85),
+                            color: Color(0xffCC4950),
                           )
                         ],
                       )
@@ -153,47 +154,36 @@ class MenungguPembayaran extends StatelessWidget {
                           const Icon(
                             Icons.copy,
                             size: 12,
-                            color: Color(0xff5E7F85),
+                            color: Color(0xffCC4950),
                           )
                         ],
                       ),
-                      Text(
-                        'Lihat Detail',
-                        style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13,
-                            color: const Color(0xff5E7F85)),
+                      GestureDetector(
+                        onTap: () => Get.to(SelesaiPembayaranPage()),
+                        child: Text(
+                          'Lihat Detail',
+                          style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 13,
+                              color: const Color(0xffCC4950)),
+                        ),
                       )
                     ],
                   ),
                   const SizedBox(
                     height: 25,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(const SelesaiPembayaranPage());
-                    },
-                    child: Center(
-                      child: Text(
-                        'Lihat Cara Pembayaran',
-                        style: GoogleFonts.poppins(
-                          color: const Color(0xff5E7F85),
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
                   const SizedBox(
                     height: 25,
                   ),
                   Center(
                     child: Container(
-                      width: 288,
-                      height: 40,
+                      width: double.infinity,
+                      height: 48,
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 2,
-                          color: const Color(0xffB4B4BC),
+                          color: const Color(0xffCC4950),
                         ),
                         borderRadius: BorderRadius.circular(18),
                       ),
@@ -202,15 +192,40 @@ class MenungguPembayaran extends StatelessWidget {
                             Get.to(ChatPage());
                           },
                           child: Text(
-                            'Chat Dengan Konsultan',
+                            'Lihat Cara Pembayaran',
                             style: GoogleFonts.roboto(
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
-                              color: const Color(0xffB4B4BC),
+                              color: const Color(0xffCC4950),
                             ),
                           )),
                     ),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Center(
+                    child: Container(
+                      width: double.infinity,
+                      height: 48,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffCC4950),
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      child: TextButton(
+                          onPressed: () {
+                            Get.to(ChatPage());
+                          },
+                          child: Text(
+                            'Chat dengan Konsultan',
+                            style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
+                          )),
+                    ),
+                  ),
                 ],
               ),
             ),

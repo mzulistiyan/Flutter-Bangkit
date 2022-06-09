@@ -15,7 +15,12 @@ class _RiwayatPageState extends State<RiwayatPage>
   @override
   void initState() {
     _tabController = new TabController(length: 4, vsync: this);
+    _tabController!.addListener(_handleTabSelection);
     super.initState();
+  }
+
+  void _handleTabSelection() {
+    setState(() {});
   }
 
   @override
@@ -63,21 +68,21 @@ class _RiwayatPageState extends State<RiwayatPage>
                 height: 15,
               ),
               Align(
-                alignment: Alignment.center,
+                alignment: Alignment.centerLeft,
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 20,
                   ),
                   child: Container(
-                    width: 400,
+                    width: 350,
                     height: 30,
                     child: TabBar(
                       indicatorSize: TabBarIndicatorSize.label,
-                      labelStyle: GoogleFonts.poppins(color: Color(0xff85BDBF)),
-                      unselectedLabelColor: Colors.blue,
+                      labelStyle: GoogleFonts.poppins(color: Colors.black),
+                      unselectedLabelColor: Color(0xff757575),
                       indicator: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xffC2FCF7),
+                        color: Color(0xffCC4950),
                       ),
                       padding: EdgeInsets.zero,
                       indicatorPadding: EdgeInsets.zero,
@@ -88,64 +93,76 @@ class _RiwayatPageState extends State<RiwayatPage>
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 0
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Semua',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 1
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Berhasil',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 2
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Menunggu',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
                         Tab(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Color(0xffF4F5F7),
-                                )),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: _tabController!.index == 3
+                                    ? Colors.transparent
+                                    : Color(0xffBDBDBD),
+                              ),
+                            ),
                             child: Center(
                                 child: Text(
                               'Gagal',
                               style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xff727375)),
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
                           ),
                         ),
@@ -170,23 +187,26 @@ class _RiwayatPageState extends State<RiwayatPage>
                     child: ListView(
                       padding: EdgeInsets.fromLTRB(18, 10, 18, 70),
                       children: [
-                        card(0, 'assets/banner_finance.png'),
+                        card(
+                          0,
+                          'assets/career.png',
+                        ),
                         card(
                           1,
-                          'assets/banner_finance.png',
+                          'assets/career.png',
                         ),
                         card(
                           2,
-                          'assets/banner_mental.png',
+                          'assets/career.png',
                         ),
-                        card(0, 'assets/banner_career.png'),
+                        card(0, 'assets/career.png'),
                         card(
                           1,
-                          'assets/banner_finance.png',
+                          'assets/career.png',
                         ),
                         card(
                           2,
-                          'assets/banner_mental.png',
+                          'assets/career.png',
                         ),
                       ],
                     ),
@@ -197,15 +217,15 @@ class _RiwayatPageState extends State<RiwayatPage>
                       children: [
                         card(
                           0,
-                          'assets/banner_finance.png',
+                          'assets/career.png',
                         ),
                         card(
                           0,
-                          'assets/banner_career.png',
+                          'assets/career.png',
                         ),
                         card(
                           0,
-                          'assets/banner_mental.png',
+                          'assets/career.png',
                         ),
                       ],
                     ),
@@ -216,15 +236,15 @@ class _RiwayatPageState extends State<RiwayatPage>
                       children: [
                         card(
                           1,
-                          'assets/banner_finance.png',
+                          'assets/career.png',
                         ),
                         card(
                           1,
-                          'assets/banner_career.png',
+                          'assets/career.png',
                         ),
                         card(
                           1,
-                          'assets/banner_mental.png',
+                          'assets/career.png',
                         ),
                       ],
                     ),
@@ -235,15 +255,15 @@ class _RiwayatPageState extends State<RiwayatPage>
                       children: [
                         card(
                           2,
-                          'assets/banner_finance.png',
+                          'assets/career.png',
                         ),
                         card(
                           2,
-                          'assets/banner_career.png',
+                          'assets/career.png',
                         ),
                         card(
                           2,
-                          'assets/banner_mental.png',
+                          'assets/career.png',
                         ),
                       ],
                     ),
@@ -264,10 +284,16 @@ class _RiwayatPageState extends State<RiwayatPage>
   ) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.fromLTRB(
+        7,
+        5,
+        5,
+        0,
+      ),
       width: 335,
-      height: 115,
+      height: 125,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(20),
         color: Colors.white,
         border: Border.all(
           color: Colors.grey.withOpacity(0.2),
@@ -289,32 +315,60 @@ class _RiwayatPageState extends State<RiwayatPage>
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Image.asset(
-                      image,
-                      width: 100,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Text(
-                        'Total Harga',
-                        style: GoogleFonts.poppins(
-                            fontSize: 12, color: Color(0xff909193)),
+                    Container(
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            image,
+                            width: 130,
+                            height: 110,
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 20, left: 6),
+                            width: indicator == 0
+                                ? 70
+                                : indicator == 1
+                                    ? 85
+                                    : indicator == 2
+                                        ? 60
+                                        : 0,
+                            height: 25,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: indicator == 0
+                                    ? Color(0xffD3FFDC)
+                                    : indicator == 1
+                                        ? Color(0xffF8E3AE)
+                                        : indicator == 2
+                                            ? Color(0xffF8AEAE)
+                                            : Colors.green),
+                            child: Center(
+                              child: Text(
+                                indicator == 0
+                                    ? 'Berhasil'
+                                    : indicator == 1
+                                        ? 'Menunggu'
+                                        : indicator == 2
+                                            ? 'Gagal'
+                                            : '',
+                                style: GoogleFonts.roboto(
+                                    color: indicator == 0
+                                        ? Color(0xff2CA033)
+                                        : indicator == 1
+                                            ? Color(0xffE76C2B)
+                                            : indicator == 2
+                                                ? Color(0xffE52E2E)
+                                                : Colors.green),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Text(
-                        'Rp. 50.000',
-                        style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff85BDBF)),
-                      ),
-                    )
                   ],
+                ),
+                SizedBox(
+                  width: 15,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -322,78 +376,48 @@ class _RiwayatPageState extends State<RiwayatPage>
                     Text(
                       'Konsultasi Persiapan Karir',
                       style: GoogleFonts.roboto(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
                       ),
+                    ),
+                    SizedBox(
+                      height: 5,
                     ),
                     Text(
                       'Oleh Ricard Archi Santan Qassandra, P...',
                       style: GoogleFonts.roboto(
                         fontSize: 11,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xff909193),
-                      ),
-                    ),
-                    Text(
-                      'Senin, 9 Mei 2022 - 19:00 WIB',
-                      style: GoogleFonts.roboto(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w500,
+                        color: Color(0xffBDBDBD),
                       ),
                     ),
                     SizedBox(
-                      height: 25,
+                      height: 5,
                     ),
-                    Container(
-                      width: 200,
-                      height: 25,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                          color: indicator == 0
-                              ? Color(0xffD3FFDC)
-                              : indicator == 1
-                                  ? Color(0xffF8E3AE)
-                                  : indicator == 2
-                                      ? Color(0xffF8AEAE)
-                                      : Colors.transparent),
-                      child: Center(
-                        child: Text(
-                          indicator == 0
-                              ? 'Berhasil'
-                              : indicator == 1
-                                  ? 'Menunggu'
-                                  : indicator == 2
-                                      ? 'Gagal'
-                                      : '',
-                          style: GoogleFonts.roboto(
-                              color: indicator == 0
-                                  ? Color(0xff2CA033)
-                                  : indicator == 1
-                                      ? Color(0xffE76C2B)
-                                      : indicator == 2
-                                          ? Color(0xffE52E2E)
-                                          : Colors.transparent),
-                        ),
+                    Text(
+                      'Senin, 9 Mei 2022 | 19:00 WIB',
+                      style: GoogleFonts.roboto(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xff757575),
                       ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      'Rp 50.000',
+                      style: GoogleFonts.roboto(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xffCC4950),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
                     ),
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Column(
-                      children: [
-                        Icon(
-                          Icons.more_vert_rounded,
-                          color: Color(0xff85BDBF),
-                        ),
-                        SizedBox(
-                          height: 60,
-                        ),
-                      ],
-                    ),
-                  ],
-                )
               ],
             )
           ],

@@ -21,6 +21,8 @@ class _PembayaranPageState extends State<PembayaranPage> {
           color: Colors.black, //change your color here
         ),
         backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
         title: Text(
           'Pembayaran',
           style: GoogleFonts.poppins(
@@ -58,7 +60,7 @@ class _PembayaranPageState extends State<PembayaranPage> {
                   child: Text(
                     'Lihat Semua',
                     style: GoogleFonts.roboto(
-                      color: const Color(0xff85BDBF),
+                      color: const Color(0xffCC4950),
                       fontSize: 13,
                       fontWeight: FontWeight.w500,
                     ),
@@ -70,13 +72,7 @@ class _PembayaranPageState extends State<PembayaranPage> {
               height: 20,
             ),
             pilihMetode('assets/icons/icon_bni.png', 'BNI Virtual Account', 1),
-            const Divider(
-              thickness: 1,
-            ),
             pilihMetode('assets/icons/icon_bca.png', 'BCA Virtual Account', 2),
-            const Divider(
-              thickness: 1,
-            ),
             pilihMetode('assets/icons/icon_bri.png', 'BRI Virtual Account', 3),
             SizedBox(
               height: 10,
@@ -144,12 +140,6 @@ class _PembayaranPageState extends State<PembayaranPage> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         decoration: const BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 2.0,
-              offset: Offset(3.0, 0),
-            ),
-          ],
         ),
         height: 80,
         child: Row(
@@ -162,25 +152,23 @@ class _PembayaranPageState extends State<PembayaranPage> {
                 Text(
                   'Total Bayar',
                   style: GoogleFonts.roboto(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                  ),
+                      fontSize: 12, color: Color(0xff757575)),
                 ),
                 Text(
                   'Rp. 50.000',
                   style: GoogleFonts.roboto(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xff85BDBF)),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xffCC4950)),
                 )
               ],
             ),
             Container(
-              width: 168,
-              height: 30,
+              width: 124,
+              height: 44,
               decoration: BoxDecoration(
-                color: Color(0xffC2FCF7),
-                borderRadius: BorderRadius.circular(17.5),
+                color: Color(0xffCC4950),
+                borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
@@ -197,7 +185,7 @@ class _PembayaranPageState extends State<PembayaranPage> {
                 child: Text(
                   'BAYAR',
                   style: GoogleFonts.poppins(
-                    color: Color(0xff57737A),
+                    color: Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize: 11,
                   ),
@@ -348,42 +336,65 @@ class _PembayaranPageState extends State<PembayaranPage> {
     String bank,
     int value,
   ) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
+    return Container(
+      margin: EdgeInsets.symmetric(
+        vertical: 10,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xffCC4950).withOpacity(0.1),
+            spreadRadius: 1,
+            blurRadius: 2,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
+      ),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 8,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset(
-              image,
-              width: 52,
+            Row(
+              children: [
+                Image.asset(
+                  image,
+                  width: 52,
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  bank,
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
             ),
-            SizedBox(
-              width: 16,
-            ),
-            Text(
-              bank,
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
+            Container(
+              height: 60,
+              width: 50,
+              child: Radio(
+                activeColor: const Color(0xffCC4950),
+                value: value,
+                groupValue: _value,
+                onChanged: (value) {
+                  setState(() {
+                    _value = value as int?;
+                  });
+                },
               ),
             ),
           ],
         ),
-        Container(
-          height: 60,
-          width: 50,
-          child: Radio(
-            activeColor: const Color(0xff85BDBF),
-            value: value,
-            groupValue: _value,
-            onChanged: (value) {
-              setState(() {
-                _value = value as int?;
-              });
-            },
-          ),
-        ),
-      ],
+      ),
     );
   }
 

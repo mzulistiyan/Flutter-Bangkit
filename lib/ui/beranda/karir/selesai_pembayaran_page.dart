@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_bangkit_capstone/ui/beranda/karir/chat_konsultaso_page.dart';
+import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SelesaiPembayaranPage extends StatelessWidget {
@@ -14,7 +16,7 @@ class SelesaiPembayaranPage extends StatelessWidget {
               width: double.infinity,
               height: 240,
               decoration: BoxDecoration(
-                color: Color(0xff058B77),
+                color: Color(0xff2CA033),
               ),
               child: Container(
                 child: Center(
@@ -26,21 +28,20 @@ class SelesaiPembayaranPage extends StatelessWidget {
                         height: 88,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color(0xff285F65),
+                          color: Color(0xffD5ECD6),
                         ),
                         child: Center(
-                          child: Image.asset(
-                            'assets/icons/icon_check.png',
-                            width: 50,
-                            height: 50,
-                          ),
-                        ),
+                            child: Icon(
+                          Icons.check_circle_outline_outlined,
+                          size: 50,
+                          color: Color(0xff165019),
+                        )),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Text(
-                        'Pembayaran\nBerhasil',
+                        'Pembayaran Berhasil',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                           fontSize: 15,
@@ -61,18 +62,21 @@ class SelesaiPembayaranPage extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  Text(
-                    'Status',
-                    style: GoogleFonts.roboto(color: const Color(0xff787878)),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    'Transaksi Berhasil',
-                    style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xff058B77)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Status',
+                        style:
+                            GoogleFonts.roboto(color: const Color(0xff787878)),
+                      ),
+                      Text(
+                        'Transaksi Berhasil',
+                        style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w700,
+                            color: const Color(0xff058B77)),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 5,
@@ -86,22 +90,16 @@ class SelesaiPembayaranPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Total Pembayaran',
-                          style: GoogleFonts.roboto(
-                              color: const Color(0xff787878)),
-                        ),
+                      Text(
+                        'Total Pembayaran',
+                        style:
+                            GoogleFonts.roboto(color: const Color(0xff787878)),
                       ),
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'AN_P2330129',
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13,
-                          ),
+                      Text(
+                        'AN_P2330129',
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
                         ),
                       )
                     ],
@@ -112,22 +110,16 @@ class SelesaiPembayaranPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Tanggal Transaksi',
-                          style: GoogleFonts.roboto(
-                              color: const Color(0xff787878)),
-                        ),
+                      Text(
+                        'Tanggal Transaksi',
+                        style:
+                            GoogleFonts.roboto(color: const Color(0xff787878)),
                       ),
-                      Container(
-                        width: 132,
-                        child: Text(
-                          '12 Juni 2021',
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13,
-                          ),
+                      Text(
+                        '12 Juni 2021',
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
                         ),
                       )
                     ],
@@ -138,22 +130,16 @@ class SelesaiPembayaranPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Waktu Transaksi',
-                          style: GoogleFonts.roboto(
-                              color: const Color(0xff787878)),
-                        ),
+                      Text(
+                        'Waktu Transaksi',
+                        style:
+                            GoogleFonts.roboto(color: const Color(0xff787878)),
                       ),
-                      Container(
-                        width: 132,
-                        child: Text(
-                          '22:00 WIB',
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13,
-                          ),
+                      Text(
+                        '22:00 WIB',
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
                         ),
                       )
                     ],
@@ -164,22 +150,16 @@ class SelesaiPembayaranPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Konsultasi',
-                          style: GoogleFonts.roboto(
-                              color: const Color(0xff787878)),
-                        ),
+                      Text(
+                        'Konsultasi',
+                        style:
+                            GoogleFonts.roboto(color: const Color(0xff787878)),
                       ),
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Konsultasi Persiapan Karir',
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13,
-                          ),
+                      Text(
+                        'Konsultasi Persiapan Karir',
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
                         ),
                       )
                     ],
@@ -190,22 +170,16 @@ class SelesaiPembayaranPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Harga',
-                          style: GoogleFonts.roboto(
-                              color: const Color(0xff787878)),
-                        ),
+                      Text(
+                        'Harga',
+                        style:
+                            GoogleFonts.roboto(color: const Color(0xff787878)),
                       ),
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Rp. 50.000',
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13,
-                          ),
+                      Text(
+                        'Rp. 50.000',
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
                         ),
                       )
                     ],
@@ -216,13 +190,10 @@ class SelesaiPembayaranPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Metode Pembayaran',
-                          style: GoogleFonts.roboto(
-                              color: const Color(0xff787878)),
-                        ),
+                      Text(
+                        'Metode Pembayaran',
+                        style:
+                            GoogleFonts.roboto(color: const Color(0xff787878)),
                       ),
                       Container(
                         width: 132,
@@ -242,23 +213,17 @@ class SelesaiPembayaranPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Total Pembayaran',
-                          style: GoogleFonts.roboto(
-                              color: const Color(0xff787878)),
-                        ),
+                      Text(
+                        'Total Pembayaran',
+                        style:
+                            GoogleFonts.roboto(color: const Color(0xff787878)),
                       ),
-                      Container(
-                        width: 132,
-                        child: Text(
-                          'Rp. 50.000',
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 13,
-                            color: const Color(0xff85BDBF),
-                          ),
+                      Text(
+                        'Rp. 50.000',
+                        style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 13,
+                          color: const Color(0xff85BDBF),
                         ),
                       )
                     ],
@@ -280,32 +245,26 @@ class SelesaiPembayaranPage extends StatelessWidget {
                   ),
                   Center(
                     child: Container(
-                      width: 288,
-                      height: 40,
+                      width: double.infinity,
+                      height: 48,
                       decoration: BoxDecoration(
-                        color: const Color(0xffC2FCF7),
+                        color: const Color(0xffCC4950),
                         borderRadius: BorderRadius.circular(18),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 3,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
                       ),
                       child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(ChatPage());
+                          },
                           child: Text(
-                            'Chat Dengan Konsultan',
+                            'Chat dengan Konsultan',
                             style: GoogleFonts.roboto(
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
-                              color: const Color(0xff57737A),
+                              color: Colors.white,
                             ),
                           )),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

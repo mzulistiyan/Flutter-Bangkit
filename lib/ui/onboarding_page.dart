@@ -53,7 +53,7 @@ class _OnboardingPageStepState extends State<OnboardingPageStep> {
               height: 50,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: const Color(0xffC2FCF7),
+                    primary: const Color(0xffCC4950),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
@@ -66,7 +66,44 @@ class _OnboardingPageStepState extends State<OnboardingPageStep> {
                   child: const Center(
                     child: Icon(
                       Icons.arrow_forward,
-                      color: Color(0xff57737A),
+                      color: Colors.white,
+                    ),
+                  )),
+            )
+          ],
+        );
+
+    Widget buildButtonsLogin() => Column(
+          children: [
+            SizedBox(
+              width: 124,
+              height: 50,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: const Color(0xffCC4950),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                  onPressed: () {
+                    Get.to(const LoginPage());
+                  },
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Mulai',
+                          style: GoogleFonts.roboto(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_forward,
+                          color: Colors.white,
+                        ),
+                      ],
                     ),
                   )),
             )
@@ -124,8 +161,8 @@ class _OnboardingPageStepState extends State<OnboardingPageStep> {
           effect: const ExpandingDotsEffect(
             dotHeight: 10,
             dotWidth: 10,
-            dotColor: Color(0xff57737A),
-            activeDotColor: Color(0xffC2FCF7),
+            dotColor: Color(0xffEEC2C5),
+            activeDotColor: Color(0xffAA3D43),
           ),
         );
 
@@ -172,27 +209,21 @@ class _OnboardingPageStepState extends State<OnboardingPageStep> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              height: 50,
-              width: 50,
-              child: GestureDetector(
-                onTap: () {},
-                child: const Center(
-                  child: Text(
-                    'Skip',
-                  ),
-                ),
-              ),
-            ),
-            Container(
               height: 60,
               width: 50,
               child: buildIndicator(),
             ),
-            Container(
-              height: 60,
-              width: 60,
-              child: buildButtons(),
-            ),
+            activeIndex == 2
+                ? Container(
+                    height: 60,
+                    width: 120,
+                    child: buildButtonsLogin(),
+                  )
+                : Container(
+                    height: 60,
+                    width: 60,
+                    child: buildButtons(),
+                  ),
           ],
         ),
       ),
