@@ -131,11 +131,11 @@ class _BerandaPageState extends State<BerandaPage> {
                   'Keuangan',
                 ),
                 konsultasi(
-                  'assets/icons/icon_briefcase.png',
+                  'assets/health.png',
                   'Kesehatan',
                 ),
                 konsultasi(
-                  'assets/icons/icon_dolar.png',
+                  'assets/hukum.png',
                   'Hukum',
                 ),
               ],
@@ -147,19 +147,19 @@ class _BerandaPageState extends State<BerandaPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 konsultasi(
-                  'assets/icons/icon_dolar.png',
+                  'assets/code-circle.png',
                   'Teknologi',
                 ),
                 konsultasi(
-                  'assets/icons/icon_briefcase.png',
-                  'Arsitektur &\nBangunan',
+                  'assets/psikolog.png',
+                  'Psikolog',
                 ),
                 konsultasi(
-                  'assets/icons/icon_dolar.png',
-                  'Hewan',
+                  'assets/status-up.png',
+                  'Bisnis',
                 ),
                 konsultasi(
-                  'assets/icons/icon_briefcase.png',
+                  'assets/grid.png',
                   'Lainnya',
                 ),
               ],

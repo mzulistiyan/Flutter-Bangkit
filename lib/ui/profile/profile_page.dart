@@ -76,15 +76,13 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   listWidget(
                       'assets/icons/icon_setting.png', 'Pengaturan Akun'),
-                  listWidget('assets/icons/icon_riwayat_nav.png',
-                      'Riwayat Konsultasi'),
-                  listWidget('assets/icons/icon_referral.png', 'Kode Referral'),
-                  listWidget('assets/icons/icon_bantuan.png', 'Bantuan'),
-                  listWidget(
-                      'assets/icons/icon_syarat.png', 'Syarat & Ketentuan'),
-                  listWidget(
-                      'assets/icons/icon_privasi.png', 'Kebijakan Privasi'),
-                  listWidget('assets/icons/icon_kritik.png', 'Kritik & Saran'),
+                  listWidget('assets/riwayat.png', 'Riwayat Konsultasi'),
+                  listWidget('assets/kode.png', 'Kode Referral'),
+                  listWidget('assets/percent.png', 'Kupon Promo'),
+                  listWidget('assets/help-circle.png', 'Bantuan'),
+                  listWidget('assets/list.png', 'Syarat & Ketentuan'),
+                  listWidget('assets/shield-off.png', 'Kebijakan Privasi'),
+                  listWidget('assets/kritik.png', 'Kritik & Saran'),
                 ],
               ),
             ),

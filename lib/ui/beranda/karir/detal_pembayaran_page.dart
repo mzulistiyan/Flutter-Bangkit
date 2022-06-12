@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_bangkit_capstone/ui/beranda/karir/detal_pembayaran_page.dart';
 import 'package:flutter_application_bangkit_capstone/ui/beranda/karir/menunggu_pembayaran_page.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PembayaranPage extends StatefulWidget {
-  const PembayaranPage({Key? key}) : super(key: key);
+class DetailPembayaranPage extends StatefulWidget {
+  const DetailPembayaranPage({Key? key}) : super(key: key);
 
   @override
-  State<PembayaranPage> createState() => _PembayaranPageState();
+  State<DetailPembayaranPage> createState() => _DetailPembayaranPageState();
 }
 
-class _PembayaranPageState extends State<PembayaranPage> {
+class _DetailPembayaranPageState extends State<DetailPembayaranPage> {
   int? _value = 0;
   @override
   Widget build(BuildContext context) {
@@ -73,8 +72,6 @@ class _PembayaranPageState extends State<PembayaranPage> {
               height: 20,
             ),
             pilihMetode('assets/icons/icon_bni.png', 'BNI Virtual Account', 1),
-            pilihMetode('assets/icons/icon_bca.png', 'BCA Virtual Account', 2),
-            pilihMetode('assets/icons/icon_bri.png', 'BRI Virtual Account', 3),
             SizedBox(
               height: 10,
             ),
@@ -379,20 +376,11 @@ class _PembayaranPageState extends State<PembayaranPage> {
                 ),
               ],
             ),
-            Container(
-              height: 60,
-              width: 50,
-              child: Radio(
-                activeColor: const Color(0xffCC4950),
-                value: value,
-                groupValue: _value,
-                onChanged: (value) {
-                  setState(() {
-                    _value = value as int?;
-                  });
-                },
-              ),
-            ),
+            Icon(
+              Icons.arrow_forward_ios_sharp,
+              size: 20,
+              color: Color(0xffCC4950),
+            )
           ],
         ),
       ),
@@ -424,12 +412,9 @@ class _PembayaranPageState extends State<PembayaranPage> {
             ),
           ],
         ),
-        GestureDetector(
-          onTap: () => Get.to(const DetailPembayaranPage()),
-          child: Icon(
-            Icons.arrow_forward_ios_sharp,
-            size: 15,
-          ),
+        Icon(
+          Icons.arrow_forward_ios_sharp,
+          size: 15,
         )
       ],
     );

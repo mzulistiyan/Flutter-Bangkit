@@ -103,20 +103,20 @@ class _PersiapanKarirPageState extends State<PersiapanKarirPage> {
                 GestureDetector(
                   onTap: () => Get.to(ChatKonsultasiPage()),
                   child: konsultasi(
-                    'assets/icons/icon_konsultasi_chat.png',
+                    'assets/chat.png',
                     'Chat\nKonsultasi',
                   ),
                 ),
                 konsultasi(
-                  'assets/icons/icon_psikotes.png',
+                  'assets/meh.png',
                   'Psikotes',
                 ),
                 konsultasi(
-                  'assets/icons/icon_cv.png',
+                  'assets/file-minus.png',
                   'Buat CV',
                 ),
                 konsultasi(
-                  'assets/icons/icon_kursus.png',
+                  'assets/monitor.png',
                   'Kursus\nDaring',
                 ),
               ],
